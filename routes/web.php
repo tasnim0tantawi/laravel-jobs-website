@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Listing;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'listings');
+Route::view('/', 'listings', 
+[
+    'listings' => Listing::all()
+]);
+
 Route::view('/login', 'login');
 Route::view('/register', 'register');
 
