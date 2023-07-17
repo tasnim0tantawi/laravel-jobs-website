@@ -18,22 +18,22 @@
                 theme: {
                     extend: {
                         colors: {
-                            laravel: "#ef3b2d",
+                            laravel: "#7845c4",
                         },
                     },
                 },
             };
         </script>
-        <title>LaraGigs | Find Laravel Jobs & Projects</title>
+        <title>TasnoGigs | Find Software Development Jobs & Projects</title>
     </head>
     <body class="mb-48">
         <nav class="flex justify-between items-center mb-4">
-            <a href="index.html"
+            <a href = '/'
                 ><img class="w-24" src="images/logo.png" alt="" class="logo"
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
                 <li>
-                    <a href="register.html" class="hover:text-laravel"
+                    <a href='/register' class="hover:text-laravel"
                         ><i class="fa-solid fa-user-plus"></i> Register</a
                     >
                 </li>
@@ -69,7 +69,7 @@
                                 <a href="show.html">{{$listing['title']}}</a>
                             </h3>
                         
-                            <div class="text-xl font-bold mb-4">Acme Corp</div>
+                            <div class="text-xl font-bold mb-4">{{$listing['company']}}</div>
                             <ul class="flex">
                                 <li
                                     class="flex items-center justify-center bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs"
@@ -93,8 +93,8 @@
                                 </li>
                             </ul>
                             <div class="text-lg mt-4">
-                                <i class="fa-solid fa-location-dot"></i> Boston,
-                                MA
+                                <i class="fa-solid fa-location-dot"></i>
+                                {{$listing['location']}}
                             </div>
                         </div>
                     </div>
