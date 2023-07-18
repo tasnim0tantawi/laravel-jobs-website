@@ -23,7 +23,10 @@ Route::view('login', 'pages/login');
 
 Route::view('register', 'pages/register');
 
-Route::view('listing/{id}', 'pages/listing');
+Route::view('listing/{id}', 'pages/listing', 
+[
+    'listing' => Listing::find(1)
+]);
 
 
 
