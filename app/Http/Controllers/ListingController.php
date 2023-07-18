@@ -11,7 +11,7 @@ class ListingController extends Controller
     public function index()
     {
         return view('pages/listings/index', [
-            'listings' => Listing::latest()->filter(request(['tag']))->get()
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get()
         ]);
     }
 
@@ -21,4 +21,29 @@ class ListingController extends Controller
             'listing' => $listing
         ]);
     }
+
+    public function create()
+    {
+        return view('pages/listings/create');
+    }
+
+    public function store()
+    {
+        $attributes = request()->validate([
+            'title' => 'required',
+            'tags' => 'required',
+            'company' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+            'email' => ['required', 'email'],
+            'website' => 'required',
+        ]);
+
+        Listing::create($attributes);
+
+        return redirect('/');
+    }
+
+
+
 }
