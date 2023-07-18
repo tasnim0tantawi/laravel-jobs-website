@@ -13,6 +13,8 @@
             referrerpolicy="no-referrer"
         />
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="//unpkg.com/alpinejs" defer></script>
+
         <script>
             tailwind.config = {
                 theme: {
@@ -33,6 +35,12 @@
         @include('layout.navbar')
 
         <main>
+            <div x-data="{ show: true, message: 'This is your flash message!' }" x-show="show"
+             x-init="setTimeout(() => show = false, 3000)" 
+             class="fixed bg-green-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm" @click="show = false">
+             
+                <p x-text="message"></p>
+            </div>
             @yield('content')
         </main>
 
