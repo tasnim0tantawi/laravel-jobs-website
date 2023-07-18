@@ -15,14 +15,11 @@ use App\Http\Controllers\ListingController;
 |
 */
 
-Route::view('/', 'pages/listings', 
-[
-    'listings' => Listing::all()
-]);
+
 
 Route::get('/', [ListingController::class, 'index']);
 
-Route::get('/listings/{listing}', [ListingController::class, 'show']);
+Route::get('/listing/{listing}', [ListingController::class, 'show']);
 
 
 
