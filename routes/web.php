@@ -14,12 +14,16 @@ use App\Models\Listing;
 |
 */
 
-Route::view('/', 'listings', 
+Route::view('/', 'pages/listings', 
 [
     'listings' => Listing::all()
 ]);
 
-Route::view('/login', 'login');
-Route::view('/register', 'register');
+Route::view('login', 'pages/login');
+
+Route::view('register', 'pages/register');
+
+Route::view('listing/{id}', 'pages/listing');
+
 
 
