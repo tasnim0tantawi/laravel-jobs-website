@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,10 @@ Route::view('/', 'pages/listings',
     'listings' => Listing::all()
 ]);
 
-Route::view('login', 'pages/login');
+Route::get('/', [ListingController::class, 'index']);
 
-Route::view('register', 'pages/register');
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
-Route::view('listing/{id}', 'pages/listing', 
-[
-    'listing' => Listing::find(1)
-]);
 
 
 
